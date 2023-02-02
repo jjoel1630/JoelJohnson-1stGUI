@@ -7,13 +7,15 @@ import PyPDF2
 from PIL import Image, ImageTk
 from tkinter.filedialog import askopenfile
 
+# Init a tk object
 root = tk.Tk()
 
+# Create a tk canvas
 canvas = tk.Canvas(root, width=600, height=300)
 canvas.grid(columnspan=3, rowspan=3)
 
-# logo
-logo = Image.open('pdfimg.png')
+# Load logo + place on screen
+logo = Image.open('hurts.png')
 logo = ImageTk.PhotoImage(logo)
 logo_label = tk.Label(image=logo)
 logo_label.image = logo
@@ -25,6 +27,7 @@ instructions = tk.Label(
 instructions.grid(columnspan=3, column=0, row=1)
 
 
+# Allows user to open file from computer
 def open_file():
     browse_text.set("loading...")
     file = askopenfile(parent=root, mode='rb', title="Choose a file", filetypes=[
@@ -34,7 +37,7 @@ def open_file():
         page = read_pdf.pages[0]
         page_content = page.extract_text()
 
-        # text box
+        # text formatting
         text_box = tk.Text(root, height=10, width=50, padx=15, pady=15)
         text_box.insert(1.0, page_content)
         text_box.tag_configure("center", justify="center")
@@ -44,7 +47,7 @@ def open_file():
         browse_text.set("Browse")
 
 
-# browse button
+# browse button for choosing file
 browse_text = tk.StringVar()
 browse_btn = tk.Button(root, textvariable=browse_text, command=lambda: open_file(
 ), font="Raleway", bg="#20bebe", fg="white", height=2, width=15)
