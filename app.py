@@ -7,7 +7,7 @@ import PyPDF2
 from PIL import Image, ImageTk
 from tkinter.filedialog import askopenfile
 
-# Init a tk object
+# Initialize a tk object
 root = tk.Tk()
 
 # Create a tk canvas
