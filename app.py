@@ -46,10 +46,10 @@ def open_file():
 
         browse_text.set("Browse")
 
-        resize_image = logo.resize((200, 200))
-        logo_label = tk.Label(image=resize_image)
-        logo_label.image = resize_image
-        logo_label.grid(column=1, row=0)
+        # resize_image = logo.resize((200, 200))
+        # logo_label = tk.Label(image=resize_image)
+        # logo_label.image = resize_image
+        # logo_label.grid(column=1, row=0)
 
 
 
